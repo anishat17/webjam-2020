@@ -1,3 +1,21 @@
 body{
     margin: auto;
 }
+
+.top-bar{
+	padding: 40px;
+	background-color: #31445e;
+	min-width: 100%;
+    float: center;
+    justify-content: space-between;
+    align-content: center;
+}
+.heading-text{
+    color: white;
+    text-align: center;
+    font: bold;
+	font-family: Calibri;
+    float: center;
+    font-size: 40px;
+
+}
