@@ -3,19 +3,20 @@ body{
 }
 
 .top-bar{
-	padding: 40px;
-	background-color: #31445e;
-	min-width: 100%;
-    float: center;
-    justify-content: space-between;
-    align-content: center;
+    background-color: #31445E;
+    overflow: hidden;
+    
 }
-.heading-text{
+.top-bar h1{
     color: white;
     text-align: center;
     font: bold;
 	font-family: Calibri;
     float: center;
-    font-size: 40px;
-
+    font-size:40px;
+}
+.logo{
+    position:fixed; 
+	top: 0; 
+	left: 0; 
 }
