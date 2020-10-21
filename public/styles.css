@@ -33,7 +33,9 @@ body {
 .top-bar{
     background-color: #31445E;
     overflow: hidden;
-    
+    width: 100%;
+    position:fixed;
+    z-index: 1;
 }
 .top-bar h1{
     color:#31445e;
