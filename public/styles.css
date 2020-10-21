@@ -16,6 +16,7 @@ body {
     background-size: auto 100%;
     background-position: left;
     animation: pan 45s infinite;
+
 }
   
 @keyframes pan {
