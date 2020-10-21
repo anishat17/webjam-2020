@@ -8,7 +8,7 @@ body{
     
 }
 .top-bar h1{
-    color: white;
+    color: 31445e;
     text-align: center;
     font: bold;
 	font-family: Calibri;
@@ -19,4 +19,23 @@ body{
     position:fixed; 
 	top: 0; 
 	left: 0; 
+}
+
+.background-tint {
+    filter: drop-shadow(140%) saturate(200%) brightness(70%) hue-rotate(330deg);
+  }
+
+#pop-up{
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    background: black ;
+    opacity: 90%;
+    box-sizing: border-box;
+    padding: 20px;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }
