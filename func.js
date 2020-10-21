@@ -3,7 +3,13 @@ $(document).ready(function(){
     function hideWindow(){
         x.style.display = "none";
     }
+    function showElements(){
+        
+    }
     $('#close-popup').click(function(){
         hideWindow();
+        
+
+
     })
 })
