@@ -8,7 +8,6 @@ $(document).ready(function(){
     }
     $('#close-popup').click(function(){
         hideWindow();
-        
 
 
     })
