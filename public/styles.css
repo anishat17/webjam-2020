@@ -1,6 +1,8 @@
 body {
-    margin: auto;
-  }
+    height: 600px;
+    width: 600px;
+}
+
 
 .top-bar{
     background-color: #31445E;
