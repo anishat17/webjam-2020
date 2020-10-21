@@ -2,30 +2,34 @@
 <html>
     
     <head>
-        <link href="styles.css" rel="stylesheet" type="text/css"/>
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
+
     <body>
+        <div id="img_container" class="pano slide"></div>
         <div class = "top-bar"> 
             <h1 class="heading-text">Zot & Seek</h1>
         </div>
 
         <div class="logo"> 
-            <img src="logo2.png" height="145" width="145"> 
+            <img src="media/logo2.png" height="145" width="145"> 
         </div> 
 
         <div id = "pop-up">
-            Hi
+            pop up
             <br>
             <input type="button" value = "Start" id="close-popup"></div>
 
             
         <div class = "bottom-bar">
-            hiiiiiii
+            bottom bar
         </div>
-           
-        <div id="img_container" class="pano slide"></div>
+          
+        <div class="Timer hide">Timer</div>
+        <div class="Hint hide">Hint</div>
+        <div class="Score hide">Score</div>
 
-        <div class="guess-picture">
+        <div class="guess-picture hide">
             <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
 
@@ -37,7 +41,15 @@
             </div>
             <div id = "num-correct">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-        <script src = "func.js"></script>     
+        <script src = "js/func.js"></script>     
 
     </body>
 </html>
+
+
+
+<!-- Guess
+    Timer
+    Hint
+    Score
+    Make top bar a nav bar-->
