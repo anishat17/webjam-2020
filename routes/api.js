@@ -31,7 +31,7 @@ function generateList(arr) {
 const router = express.Router();
 
 router.get("/maps/range", (req, res) => {
-    db.query("SELECT COUNT(Mapid) as Count FROM maps", (err, result, fields) => {
+    db.query("SELECT COUNT(Mapid) as count FROM maps", (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");
             console.log(err);
