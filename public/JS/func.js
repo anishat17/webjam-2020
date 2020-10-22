@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var x = document.getElementById("pop-up");
+    var y = document.getElementById("img_container")
     function hideWindow(){
         x.style.display = "none";
     }
@@ -8,8 +9,7 @@ $(document).ready(function(){
     }
     $('#close-popup').click(function(){
         hideWindow();
-        $(body).css("background","none");
-
-
+        y.style.background = "url(media/hess-13-irvine.jpg)";
+        y.style.animation = "none";
     })
 })
