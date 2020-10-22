@@ -8,6 +8,7 @@ $(document).ready(function(){
     }
     $('#close-popup').click(function(){
         hideWindow();
+        $(body).css("background","none");
 
 
     })
