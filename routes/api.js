@@ -18,6 +18,15 @@ db.connect((err) => {
     }
 });
 
+function generateList(arr) {
+    let result = "(";
+    for (i in arr) {
+        result += arr[i] + ", ";
+    }
+    result += ")";
+    return result;
+}
+
 
 const router = express.Router();
 
@@ -37,7 +46,7 @@ router.get("/maps", (req, res) => {
         res.status(400).send("Bad Request");
     }
     
-    db.query(`SELECT MapId, Link FROM maps WHERE Mapid =${req.query.mapid}`, (err, result, fields) => {
+    db.query(`SELECT MapId, Link FROM maps WHERE Mapid IN ${generateList(req.query.mapid)}`, (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");
         }
