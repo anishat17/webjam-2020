@@ -19,13 +19,9 @@ db.connect((err) => {
 });
 
 function generateList(arr) {
-    let result = "(";
-    for (i in arr) {
-        result += arr[i] + ", ";
-    }
-    result += ")";
-    return result;
+    return "(" + arr.join(", ") + ")";
 }
+
 
 
 const router = express.Router();
@@ -40,13 +36,28 @@ router.get("/maps/range", (req, res) => {
     });
 })
 
-router.get("/maps", (req, res) => {
+router.get("/maps/", (req, res) => {
     if (!req.query.mapid) {
         console.log("invalid request");
         res.status(400).send("Bad Request");
     }
     
-    db.query(`SELECT MapId, Link FROM maps WHERE Mapid IN ${generateList(req.query.mapid)}`, (err, result, fields) => {
+    db.query(`SELECT Mapid, Link FROM maps WHERE Mapid = ${req.query.mapid}`, (err, result, fields) => {
+        if (err) {
+            res.status(503).send("503 Service Unavailable");
+        }
+        res.send(result[0]);
+    });
+
+});
+
+router.get("/maps/locations", (req, res) => {
+    if (!req.query.mapid) {
+        console.log("invalid request");
+        res.status(400).send("Bad Request");
+    }
+    
+    db.query(`SELECT MapId, Location FROM maps WHERE Mapid IN ${generateList(req.query.mapid)}`, (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");
         }

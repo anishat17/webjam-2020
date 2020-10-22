@@ -39,8 +39,41 @@ function optionsGenerator()
     return currentOptions;
 }
 
+function linkGetter(mapid) {
+    
+    let result = {};
+    return $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/api/maps',
+        data: {
+            "mapid": mapid 
+        },
+        async: false,
+    });
+    
+    
+}
+
+function optionsGetter(arr) {
+    return $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/api/maps',
+        data: {
+            "mapid": mapid 
+        }
+    });
+}
+
+
+function handleLinkData(data) {
+    
+}
+
 
 randAnsPicker(19);
 
 rangeGetter();
 console.log(setSize);
+
+
+console.log(linkGetter(1));
