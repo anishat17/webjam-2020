@@ -10,28 +10,40 @@ const db = mysql.createConnection({
     database: "heroku_3c5393be4190d25"
 });
 
-let db_results;
+db.connect((err) => {
+    if (err) {
+        console.log("connection failed");
+    } else {
+        console.log("connected");
+    }
+});
+
 
 const router = express.Router();
 
 router.get("/maps", (req, res) => {
-    db.connect((err) => {
-        if(err) {
-            throw err;
-        }
-        console.log("connected");
-    });
 
     db.query("SELECT * FROM maps", (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");
         }
-        db_results = result;
+        res.send(result);
     });
 
-    db.end();
-    res.send(db_results);
-    
-})
+});
 
 module.exports = router;
+
+
+function keepAlive() {
+    while (true) {
+        setTimeout(() => {
+            console.log("looped");
+            db.query("SELECT * FROM DUAL", (err, result, fields) => {
+                if(err) throw err;
+            });
+        }, 10000);
+    }
+}
+
+//keepAlive();
