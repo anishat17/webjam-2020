@@ -21,9 +21,23 @@ db.connect((err) => {
 
 const router = express.Router();
 
-router.get("/maps", (req, res) => {
+router.get("/maps/range", (req, res) => {
+    db.query("SELECT COUNT(Mapid) as Count FROM maps", (err, result, fields) => {
+        if (err) {
+            res.status(503).send("503 Service Unavailable");
+            console.log(err);
+        }
+        res.send(result);
+    });
+})
 
-    db.query("SELECT * FROM maps", (err, result, fields) => {
+router.get("/maps", (req, res) => {
+    if (!req.query.mapid) {
+        console.log("invalid request");
+        res.status(400).send("Bad Request");
+    }
+    
+    db.query(`SELECT MapId, Location, Link FROM maps WHERE Mapid =${req.query.mapid}`, (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");
         }
@@ -43,4 +57,4 @@ function trivialQuery() {
     });
 }
 
-setInterval(trivialQuery, 45000)
+setInterval(trivialQuery, 45000);
