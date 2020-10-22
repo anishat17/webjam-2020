@@ -35,15 +35,12 @@ router.get("/maps", (req, res) => {
 module.exports = router;
 
 
-function keepAlive() {
-    while (true) {
-        setTimeout(() => {
-            console.log("looped");
-            db.query("SELECT * FROM DUAL", (err, result, fields) => {
-                if(err) throw err;
-            });
-        }, 10000);
-    }
+
+function trivialQuery() {
+    console.log("looped");
+    db.query("SELECT Mapid FROM maps WHERE Mapid < 0", (err, result, fields) => {
+        if(err) throw err;
+    });
 }
 
-//keepAlive();
+setInterval(trivialQuery, 45000)
