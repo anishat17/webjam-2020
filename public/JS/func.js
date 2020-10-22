@@ -18,3 +18,8 @@ $(document).ready(function(){
         change_background();
     });
 });
+        $(body).css("background","none");
+
+
+    })
+})
