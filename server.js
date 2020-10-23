@@ -8,6 +8,9 @@ require('dotenv').config();
 
 const app = express();
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 // third-party middleware
 app.use(cors());
 
