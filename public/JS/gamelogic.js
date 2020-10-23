@@ -71,7 +71,17 @@ function optionsGetter(arr) {
 }
 
 
+function checkOption(mapid, option) {
+    return $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/api/maps/check',
+        data: {
+            "mapid": mapid,
+            "location": option 
+        }
+    }).then(data => {
+        return data.correct;
+    })
+}
 
-initializeRound(19).then(data => {
-    console.log(data);
-})
+
