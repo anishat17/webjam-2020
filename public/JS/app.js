@@ -1,7 +1,10 @@
 $(document).ready(function(){
-   
-    var x = document.getElementById("pop-up");
+    var score = 0;
+    var framecount = 0;
+    var quit = false;
+    var x = document.getElementById("start-pop-up");
     var y = document.getElementById("img_container");
+    var z = document.getElementById("gameover");
     var range;
     function hideWindow(){
         x.style.display = "none";
@@ -11,23 +14,33 @@ $(document).ready(function(){
     });
   
     function mapiframe(){
+      ++framecount;
       return initializeRound(range).then(data=>{
         $(".map-container iframe").replaceWith(`<iframe src="${data["link"]}" allowfullscreen="false" id="${data["mapid"]}"></iframe>`);
         $(data["locations"]).each(function(index){
           $(`option[value='${index+1}']`).html(this);
         });
-        seconds = 60;
+        seconds = 10;
       });
     }
 
-
+    function cycle(){
+      console.log(framecount);
+      if(score == 5 || framecount >= 5){
+        console.log("ru here");
+        quit = true;
+        $("#gameover").trigger("endgame");
+      }
+    }
 
     $('#start-button').click(function(){
         hideWindow();
         y.style.background = "url(media/hess-13-irvine.jpg)";
         y.style.animation = "none";
+        cycle();
         mapiframe().then(() => {
           $(".map-container").removeClass("hide");
+          $("#countdown").removeClass("hide");
           countdown = setInterval(timer, 1000);
         });
     })
@@ -39,13 +52,17 @@ $(document).ready(function(){
       console.log(mapId, option);
       checkOption(mapId, option).then(correct => {
         if (correct){
-          //increment score by one!
+          ++score;
+          $("#score").html("Score: " + score + "/5");
         }
         else{
           //incorrect ans popup, call iframe again
           console.log('incorrect');
         }
-        mapiframe();
+        if(!quit){
+          cycle();
+          mapiframe();
+        }
       });
     });
 
@@ -53,14 +70,26 @@ $(document).ready(function(){
       clock.innerHTML = "Time's Up!";
       clearInterval(countdown);
       setTimeout(() => {console.log("switching map");}, 2000);
-      mapiframe().then(() => {
+      if(!quit){
+        cycle();
+        mapiframe().then(() => {
         countdown = setInterval(timer, 1000);
-      });
+        })
+      }
     });
 
+    $("#gameover").on("endgame", e=> {
+      $("#gameover").removeClass("hide");
+      score = 0; 
+      framecount = 0;
+      clearInterval(countdown);
+    });
 
+    $('#restart-button').click(function(){
+      location.reload();
+    });
     var clock = document.getElementById("countdown");
-    var seconds = 60;
+    var seconds = 10;
 
     function timer(){
         if (seconds < 10) seconds= "0" + seconds;

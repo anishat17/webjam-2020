@@ -9,8 +9,11 @@ body {
 
 #countdown{
     color: #31445E;
-    font-size: 23px;
+    font-size: 20px;
     position: absolute;
+    /*padding: 5px;
+    border: red;*/
+    border-style:outset;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)
@@ -99,7 +102,7 @@ body {
     box-shadow: black;
 }
 
-#pop-up{
+.pop-up{
     text-align: center;
     width: 600px;
     height: 400px;
@@ -108,14 +111,14 @@ body {
     box-sizing: border-box;
     border-radius: 25px;
     padding: 20px;
-    
+    z-index: 3;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)
 }
 
-#pop-up h1{
+.pop-up h1{
     color:#31445E;
     text-align: center;
     font: bold;
@@ -124,7 +127,7 @@ body {
     font-size: 40px;
 }
 
-#pop-up p{
+.pop-up p{
     color:#31445E;
     text-align: center;
 	font-family: Calibri;
