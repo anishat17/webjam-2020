@@ -23,7 +23,7 @@ function generateList(arr) {
 }
 
 function shuffleArr(arr) {
-    var randIndex, old, i;
+    let randIndex, old, i;
     for (index = arr.length - 1; index > 0; index--) {
         randIndex = Math.floor(Math.random() * (i + 1));
         old = arr[i];
