@@ -14,13 +14,16 @@ $(document).ready(function(){
     });
   
     function mapiframe(){
+      $(".map-container .loader").removeClass("hide");
+      $(".map-container iframe").addClass("hide");
       return initializeRound(range).then(data=>{
+        $(".map-container .loader").addClass("hide");
         $(".map-container iframe").replaceWith(`<iframe src="${data["link"]}" allowfullscreen="false" id="${data["mapid"]}"></iframe>`);
         $(data["locations"]).each(function(index){
           $(`option[value='${index+1}']`).html(this);
         });
         ++framecount;
-        seconds = 10;
+        seconds = 30;
       });
     }
 
@@ -92,7 +95,7 @@ $(document).ready(function(){
       location.reload();
     });
     var clock = document.getElementById("countdown");
-    var seconds = 10;
+    var seconds = 30;
 
     function timer(){
         if (seconds < 10) seconds= "0" + seconds;
