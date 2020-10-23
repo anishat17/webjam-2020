@@ -188,4 +188,16 @@ body {
     display: none;
 }
 
+#score{
+    color: #31445E;
+    font-size: 20px;
+    position: absolute;
+    /*padding: 5px;
+    border: red;*/
+    border-style:outset;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%)
+}
+
 
