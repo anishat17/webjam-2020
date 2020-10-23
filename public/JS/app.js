@@ -4,7 +4,6 @@ $(document).ready(function(){
     var quit = false;
     var x = document.getElementById("start-pop-up");
     var y = document.getElementById("img_container");
-    var z = document.getElementById("gameover");
     var range;
     function hideWindow(){
         x.style.display = "none";
@@ -30,7 +29,6 @@ $(document).ready(function(){
     function cycle(){
       console.log(framecount);
       if(score == 5 || framecount >= 5){
-        console.log("ru here");
         quit = true;
         $("#gameover").trigger("endgame");
       }
@@ -43,7 +41,7 @@ $(document).ready(function(){
         cycle();
         mapiframe().then(() => {
           $(".map-container").removeClass("hide");
-          $("#countdown").removeClass("hide");
+          $(".bottom-bar").removeClass("hide");
           countdown = setInterval(timer, 1000);
         });
     })
@@ -52,7 +50,6 @@ $(document).ready(function(){
       event.preventDefault();
       var mapId = $(".map-container iframe").attr("id");
       var option = $("#guess-dropdown option:selected").text();
-      console.log(mapId, option);
       checkOption(mapId, option).then(correct => {
         if (correct){
           ++score;
