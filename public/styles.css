@@ -45,12 +45,6 @@ body {
     font-size:40px;
 }
 
-.logo{
-    position:fixed; 
-    top: 0; 
-    left: 0; 
-}
-
 .background-tint {
     filter: drop-shadow(140%) saturate(200%) brightness(70%) hue-rotate(330deg);
   }
