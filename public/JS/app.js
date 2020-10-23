@@ -1,14 +1,33 @@
 $(document).ready(function(){
+   
     var x = document.getElementById("pop-up");
-    var y = document.getElementById("img_container")
+    var y = document.getElementById("img_container");
+    var range;
     function hideWindow(){
         x.style.display = "none";
+    }          
+    rangeGetter().then(data=>{
+      range = data;
+    });
+  
+    function mapiframe(){
+      initializeRound(range).then(data=>{
+        console.log(data["link"]);
+        $(".map-container").prepend(`<iframe src="${data["link"]}" allowfullscreen="false"></iframe>`);
+      });
     }
 
-    $('#close-popup').click(function(){
+    $('#start-button').click(function(){
         hideWindow();
         y.style.background = "url(media/hess-13-irvine.jpg)";
         y.style.animation = "none";
+        mapiframe();
+        $(".map-container").removeClass("hide");
+
+
+
+  
+
     })
 
     var clock = document.getElementById("countdown");
