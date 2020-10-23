@@ -111,7 +111,6 @@ module.exports = router;
 
 function trivialQuery() {
     // keeps database connection from timing out
-    console.log("looped");
     db.query("SELECT Mapid FROM maps WHERE Mapid < 0", (err, result, fields) => {
         if(err) throw err;
     });

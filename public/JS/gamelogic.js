@@ -42,7 +42,7 @@ function optionsGenerator(maxLocs)
             usedAns.push(randNum);
             currentOptions.push(randNum);
         }
-        else if (!currentOptions.includes(randNum))
+        else if (!currentOptions.includes(randNum) && currentOptions.length > 0)
         {
             currentOptions.push(randNum);
         }

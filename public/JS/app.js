@@ -54,10 +54,6 @@ $(document).ready(function(){
           ++score;
           $("#score").html("Score: " + score + "/5");
         }
-        else{
-          //incorrect ans popup, call iframe again
-          console.log('incorrect');
-        }
         if(!quit){
           cycle();
           mapiframe();
@@ -82,7 +78,9 @@ $(document).ready(function(){
       score = 0; 
       framecount = 0;
       clearInterval(countdown);
-      $("#guess-form").addClass("hide");
+      $("#guess-form label").addClass("hide");
+      $("#guess-form select").addClass("hide");
+      $("#guess-form input").addClass("hide");
       $("#countdown").addClass("hide");
       $(".map-container").addClass("hide");
       $(".img-container").addClass("hide");
