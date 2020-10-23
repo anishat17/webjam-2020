@@ -39,19 +39,25 @@
 
             
         <div class = "bottom-bar">
-            <form id = "guess-form">
-                <label for="guess-dropdown">Guess:</label>
-                <select id="guess-dropdown">
-                <option value="0">Select Answer</option>
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-                <input type="submit">
-            </select>
-            </form>
-                <div id="countdown" class="hide"></div>
-                <div id="score">Score</div>
+
+            <div id= guess-background>
+                <form id = "guess-form">
+                    <label for="guess-dropdown" id="guess-text">Where Is Petr?</label>
+                    <select id="guess-dropdown">
+                    <option value="0">Select Answer</option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <input type="submit">
+                </select>
+                </form>
+            </div>
+
+
+            <div id="countdown" class="hide"></div>
+            <div id="score">Score: 0/5</div>
+
         </div>
          
         <div id="gameover" class="pop-up hide">
