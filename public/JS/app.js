@@ -14,12 +14,12 @@ $(document).ready(function(){
     });
   
     function mapiframe(){
-      ++framecount;
       return initializeRound(range).then(data=>{
         $(".map-container iframe").replaceWith(`<iframe src="${data["link"]}" allowfullscreen="false" id="${data["mapid"]}"></iframe>`);
         $(data["locations"]).each(function(index){
           $(`option[value='${index+1}']`).html(this);
         });
+        ++framecount;
         seconds = 10;
       });
     }
@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     $('#start-button').click(function(){
         hideWindow();
-        y.style.background = "url(media/hess-13-irvine.jpg)";
+        y.style.background = "url(https://www.solidbackgrounds.com/images/1920x1080/1920x1080-gray-solid-color-background.jpg)";
         y.style.animation = "none";
         cycle();
         mapiframe().then(() => {
@@ -83,6 +83,9 @@ $(document).ready(function(){
       score = 0; 
       framecount = 0;
       clearInterval(countdown);
+      $("#guess-form").addClass("hide");
+      $("#countdown").addClass("hide");
+      $(".map-container").addClass("hide");
     });
 
     $('#restart-button').click(function(){
