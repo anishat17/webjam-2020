@@ -1,31 +1,44 @@
 var setSize;
 var usedAns = [];
 
-function rangeGetter() {
-    $.ajax({
+function initializeRound(maxLocs) 
+{
+    let options = optionsGenerator(maxLocs);
+    return $.when(linkGetter(options[0]), optionsGetter(options))
+        .then((resp1, resp2) => {
+            console.log(resp1);
+            console.log(resp2);
+            return {
+                "link": resp1[0].link,
+                "mapid": resp1[0].mapid,
+                "locations": resp2[0].locations
+            }
+        })
+}   
+
+
+function rangeGetter() 
+{
+    // initializes game with number of locations available
+    return $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/api/maps/range',
-        async: false,
-        success:(data) => {
-            console.log(data.count);
-            setSize = data.count;
-            console.log(setSize);
-        }
-    });
+    }).then(data => {
+        return data.count;
+    })
 }
 
 function randAnsPicker(maxInt)
 {
-    randNum = Math.floor(Math.random() * (maxInt) + 1);
-    console.log(randNum);
+    return Math.floor(Math.random() * (maxInt) + 1);
 }
 
-function optionsGenerator()
+function optionsGenerator(maxLocs)
 {
     var currentOptions = [];
     while (currentOptions.length < 4)
     {
-        randNum = randAnsPicker(setSize);
+        randNum = randAnsPicker(maxLocs);
         if (!usedAns.includes(randNum) && currentOptions.length == 0)
         {
             usedAns.push(randNum);
@@ -40,21 +53,6 @@ function optionsGenerator()
 }
 
 function linkGetter(mapid) {
-    
-    let result = {};
-    return $.ajax({
-        type: 'GET',
-        url: 'http://localhost:3000/api/maps',
-        data: {
-            "mapid": mapid 
-        },
-        async: false,
-    });
-    
-    
-}
-
-function optionsGetter(arr) {
     return $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/api/maps',
@@ -64,16 +62,18 @@ function optionsGetter(arr) {
     });
 }
 
-
-function handleLinkData(data) {
-    
+function optionsGetter(arr) {
+    return $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/api/maps/locations',
+        data: {
+            "mapid": arr 
+        }
+    });
 }
 
 
-randAnsPicker(19);
 
-rangeGetter();
-console.log(setSize);
-
-
-console.log(linkGetter(1));
+initializeRound(19).then(data => {
+    console.log(data);
+})

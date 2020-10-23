@@ -36,7 +36,7 @@ router.get("/maps/range", (req, res) => {
     });
 })
 
-router.get("/maps/", (req, res) => {
+router.get("/maps", (req, res) => {
     if (!req.query.mapid) {
         console.log("invalid request");
         res.status(400).send("Bad Request");
@@ -57,11 +57,16 @@ router.get("/maps/locations", (req, res) => {
         res.status(400).send("Bad Request");
     }
     
-    db.query(`SELECT MapId, Location FROM maps WHERE Mapid IN ${generateList(req.query.mapid)}`, (err, result, fields) => {
+    db.query(`SELECT Location FROM maps WHERE Mapid IN ${generateList(req.query.mapid)}`, (err, result, fields) => {
         if (err) {
+            console.log(err);
             res.status(503).send("503 Service Unavailable");
         }
-        res.send(result[0]);
+        let data = {"locations" : []};
+        for (i in result) {
+            data.locations.push(result[i].Location);
+        }
+        res.send(data);
     });
 
 });

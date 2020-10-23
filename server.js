@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const port = process.env.PORT || 3000;
 
 const api = require('./routes/api');
 
@@ -23,4 +24,4 @@ app.get("/", (req, res) => {
 app.use('/api', api);
 
 
-app.listen(process.env.PORT || 3000, () => {console.log("listening on port 3000...")});
+app.listen(port, () => {console.log("listening on port", port)});
