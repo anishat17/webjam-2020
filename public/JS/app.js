@@ -37,7 +37,6 @@ $(document).ready(function(){
     $('#start-button').click(function(){
         hideWindow();
         y.style.background = "url(https://www.solidbackgrounds.com/images/1920x1080/1920x1080-gray-solid-color-background.jpg)";
-        y.style.animation = "none";
         cycle();
         mapiframe().then(() => {
           $(".map-container").removeClass("hide");
@@ -86,6 +85,8 @@ $(document).ready(function(){
       $("#guess-form").addClass("hide");
       $("#countdown").addClass("hide");
       $(".map-container").addClass("hide");
+      $(".img-container").addClass("hide");
+      y.style.background = "url(panorama.jpg)";
     });
 
     $('#restart-button').click(function(){

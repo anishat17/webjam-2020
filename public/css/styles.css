@@ -8,7 +8,7 @@ body {
   }
 
 #countdown{
-    color: #31445E;
+    color: #FEED72;
     font-size: 20px;
     position: absolute;
     /*padding: 5px;
@@ -104,7 +104,7 @@ body {
     border-bottom: 16px solid rgb(133, 133, 143);
     width: 120px;
     height: 120px;
-    margin-top: 30%;
+    margin-top: 20%;
     margin-left: 45%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
@@ -122,7 +122,7 @@ body {
 
 
 .bottom-bar{
-    background-color: #B1D7E7;
+    background-color: #31445E;
     z-index: 2;
     overflow: hidden;
     position: fixed;
@@ -149,6 +149,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    padding-top: 1%;
 }
 
 .pop-up{
@@ -189,15 +190,44 @@ body {
 }
 
 #score{
-    color: #31445E;
+    color: #FEED72;
     font-size: 20px;
     position: absolute;
-    /*padding: 5px;
-    border: red;*/
     border-style:outset;
     top: 50%;
     left: 10%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+}
+
+#submit-button{
+    font-size: 20px;
+    width: auto;
+    height: auto;
+    color: #FEED72;
+    font-size: 20px;
+    background-color: #31445E;
+}
+
+#guess-text{
+    color: #FEED72;
+    font-size: 20px;
+}
+
+#gameover h2{
+    color:#31445E;
+    text-align: center;
+    font: bold;
+	font-family: Calibri;
+    float: center;
+    font-size: 40px;
+}
+
+#gameover p2{
+    color:#31445E;
+    text-align: center;
+	font-family: Calibri;
+    float: center;
+    font-size: 21px;
 }
 
 
