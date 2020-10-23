@@ -88,7 +88,7 @@ router.get("/maps/check", (req, res) => {
         console.log("invalid request");
         res.status(400).send("Bad Request");
     }
-    let sql = `SELECT Mapid, Link FROM maps WHERE Mapid = 'an${req.query.mapid}' AND Location = '${req.query.location}'`;
+    let sql = `SELECT Location FROM maps WHERE Mapid = '${req.query.mapid}' AND Location = '${req.query.location}'`;
     db.query(sql, (err, result, fields) => {
         if (err) {
             res.status(503).send("503 Service Unavailable");

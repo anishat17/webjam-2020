@@ -12,8 +12,7 @@ $(document).ready(function(){
   
     function mapiframe(){
       initializeRound(range).then(data=>{
-        console.log(data["link"]);
-        $(".map-container").append(`<iframe src="${data["link"]}" allowfullscreen="false" id="${data["Mapid"]}"></iframe>`);
+        $(".map-container iframe").replaceWith(`<iframe src="${data["link"]}" allowfullscreen="false" id="${data["mapid"]}"></iframe>`);
         $(data["locations"]).each(function(index){
           $(`option[value='${index+1}']`).html(this);
         });
@@ -34,6 +33,7 @@ $(document).ready(function(){
       event.preventDefault();
       var mapId = $(".map-container iframe").attr("id");
       var option = $("#guess-dropdown option:selected").text();
+      console.log(mapId, option);
       checkOption(mapId, option).then(correct => {
         if (correct){
           //increment score by one!

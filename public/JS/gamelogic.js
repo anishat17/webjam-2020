@@ -83,5 +83,3 @@ function checkOption(mapid, option) {
         return data.correct;
     })
 }
-
-
