@@ -22,6 +22,17 @@ function generateList(arr) {
     return "(" + arr.join(", ") + ")";
 }
 
+function shuffleArr(arr) {
+    var randIndex, old, i;
+    for (index = arr.length - 1; index > 0; index--) {
+        randIndex = Math.floor(Math.random() * (i + 1));
+        old = arr[i];
+        arr[i] = arr[randIndex];
+        arr[randIndex] = old;
+    }
+    return arr;
+}
+
 
 
 const router = express.Router();
@@ -66,6 +77,7 @@ router.get("/maps/locations", (req, res) => {
         for (i in result) {
             data.locations.push(result[i].Location);
         }
+        data.locations = shuffleArr(data.locations);
         res.send(data);
     });
 

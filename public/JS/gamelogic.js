@@ -6,8 +6,6 @@ function initializeRound(maxLocs)
     let options = optionsGenerator(maxLocs);
     return $.when(linkGetter(options[0]), optionsGetter(options))
         .then((resp1, resp2) => {
-            console.log(resp1);
-            console.log(resp2);
             return {
                 "link": resp1[0].Link,
                 "mapid": resp1[0].Mapid,
