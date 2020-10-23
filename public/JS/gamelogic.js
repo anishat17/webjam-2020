@@ -53,7 +53,7 @@ function optionsGenerator(maxLocs)
 function linkGetter(mapid) {
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/maps',
+        url: '/api/maps',
         data: {
             "mapid": mapid 
         }
@@ -63,7 +63,7 @@ function linkGetter(mapid) {
 function optionsGetter(arr) {
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/maps/locations',
+        url: '/api/maps/locations',
         data: {
             "mapid": arr 
         }
@@ -74,7 +74,7 @@ function optionsGetter(arr) {
 function checkOption(mapid, option) {
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/maps/check',
+        url: '/api/maps/check',
         data: {
             "mapid": mapid,
             "location": option 
