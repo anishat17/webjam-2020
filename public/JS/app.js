@@ -14,6 +14,9 @@ $(document).ready(function(){
       initializeRound(range).then(data=>{
         console.log(data["link"]);
         $(".map-container").append(`<iframe src="${data["link"]}" allowfullscreen="false"></iframe>`);
+        $(data["locations"]).each(function(index){
+          $(`option[value='${index+1}']`).html(this);
+        });
       });
     }
 
@@ -23,11 +26,6 @@ $(document).ready(function(){
         y.style.animation = "none";
         mapiframe();
         $(".map-container").removeClass("hide");
-
-
-
-  
-
     })
 
     var clock = document.getElementById("countdown");

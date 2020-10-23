@@ -63,6 +63,13 @@ body {
     float: center;
     font-size:40px;
 }
+
+.guess-dropdown{
+    z-index: 2;
+    width: 30%;
+    height: 30%;
+    position:relative;
+}
 .logo{
     position:fixed; 
 	top: 0; 
