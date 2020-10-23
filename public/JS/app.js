@@ -86,7 +86,7 @@ $(document).ready(function(){
       $("#countdown").addClass("hide");
       $(".map-container").addClass("hide");
       $(".img-container").addClass("hide");
-      y.style.background = "url(panorama.jpg)";
+      y.style.background = "url(css/panorama.jpg)";
     });
 
     $('#restart-button').click(function(){
