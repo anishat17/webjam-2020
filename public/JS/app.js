@@ -11,15 +11,14 @@ $(document).ready(function(){
         y.style.animation = "none";
     })
 
+    var clock = document.getElementById("countdown");
+    var seconds = 60;
+
     function timer(){
-      var clock = document.getElementById("countdown");
-      var seconds = 60;
-      while (seconds != 0) {
-        if (seconds < 10) seconds="0" + seconds;
+        if (seconds < 10) seconds= "0" + seconds;
         clock.innerHTML = seconds + " seconds left";
-      }
-      clock.innerHTML = "Time's Up!";
-
+        seconds = seconds - 1;
     }
-})
 
+    setInterval(timer, 1000);
+}); 
