@@ -9,8 +9,8 @@ function initializeRound(maxLocs)
             console.log(resp1);
             console.log(resp2);
             return {
-                "link": resp1[0].link,
-                "mapid": resp1[0].mapid,
+                "link": resp1[0].Link,
+                "mapid": resp1[0].Mapid,
                 "locations": resp2[0].locations
             }
         })
