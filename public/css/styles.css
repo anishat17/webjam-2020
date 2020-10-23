@@ -11,8 +11,11 @@ body {
     color: #FEED72;
     font-size: 20px;
     position: absolute;
-    /*padding: 5px;
-    border: red;*/
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    /*border: red;*/
+    border-color: #e83333;
     border-style:outset;
     top: 50%;
     left: 90%;
@@ -62,9 +65,10 @@ body {
     color:#FEED72;
     text-align: center;
     font: bold;
-	font-family: Calibri;
+	font-family: 'Grandstander', cursive;
     float: center;
-    font-size:40px;
+    padding-top: 5px;
+    font-size:50px;
 }
 
 .guess-dropdown{
@@ -72,6 +76,14 @@ body {
     width: 30%;
     height: 30%;
     position:relative;
+}
+
+#restart-button{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding: 8px;
+    background-color: #d5e1e3;
+    border-radius: 5px;
 }
 
 .logo{
@@ -172,7 +184,7 @@ body {
     color:#31445E;
     text-align: center;
     font: bold;
-	font-family: Calibri;
+	font-family: 'Josefin Sans', sans-serif;
     float: center;
     font-size: 40px;
 }
@@ -180,7 +192,7 @@ body {
 .pop-up p{
     color:#31445E;
     text-align: center;
-	font-family: Calibri;
+	font-family: 'Josefin Sans', sans-serif;
     float: center;
     font-size: 23px;
 }
@@ -194,22 +206,45 @@ body {
     font-size: 20px;
     position: absolute;
     border-style:outset;
+    font-family: 'Josefin Sans', sans-serif;
     top: 50%;
     left: 10%;
+    padding: 5px;
+    border-radius: 5px;
     transform: translate(-50%, -50%);
 }
 
 #submit-button{
     font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
     width: auto;
     height: auto;
     color: #FEED72;
     font-size: 20px;
     background-color: #31445E;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 5px;
 }
+
+#start-button{
+    font-size: 25px;
+    width: auto;
+    height: auto;
+    color: #31445E;
+    font-family: 'Josefin Sans', sans-serif;
+    font: bold;
+    font-size: 40px;
+    margin-top: 10px;
+    background-color: #d5e1e3;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 
 #guess-text{
     color: #FEED72;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
 }
 
@@ -217,7 +252,7 @@ body {
     color:#31445E;
     text-align: center;
     font: bold;
-	font-family: Calibri;
+	font-family: 'Josefin Sans', sans-serif;
     float: center;
     font-size: 40px;
 }
@@ -225,7 +260,7 @@ body {
 #gameover p2{
     color:#31445E;
     text-align: center;
-	font-family: Calibri;
+	font-family: 'Josefin Sans', sans-serif;
     float: center;
     font-size: 21px;
 }
